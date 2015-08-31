@@ -1,0 +1,27 @@
+{
+	"id": "1091c8e0-94ce-7bc7-c272-db09c95ce9ca",
+	"name": "jersey-client",
+	"order": [
+		"26ec5ada-b061-68ac-326e-dc10fcbf109c"
+	],
+	"timestamp": 1437904441913,
+	"requests": [
+		{
+			"id": "26ec5ada-b061-68ac-326e-dc10fcbf109c",
+			"url": "localhost:8082/jersey-client",
+			"method": "GET",
+			"headers": "",
+			"data": [],
+			"dataMode": "params",
+			"tests": "",
+			"preRequestScript": "",
+			"currentHelper": "normal",
+			"pathVariables": {},
+			"version": 2,
+			"name": "get with jersey client",
+			"description": "",
+			"descriptionFormat": "html",
+			"collectionId": "1091c8e0-94ce-7bc7-c272-db09c95ce9ca"
+		}
+	]
+}

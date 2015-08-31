@@ -1,0 +1,25 @@
+
+http://www.dropwizard.io
+http://search.maven.org
+https://jersey.java.net
+http://jdbi.org
+http://www.restapitutorial.com/lessons/httpmethods.html
+http://docs.oracle.com/javaee/7/tutorial/jaxrs-client001.htm
+
+minimal-service: old version of dropwizard (0.6.2)
+
+minimal-application: current(-ish) version of dropwizard (0.8.1)
+
+getting-started: from site
+
+jersey-client:
+
+jdbi-mysql: dao defined by annotated interface
+
+resource-methods: GET, POST, PUT, DELETE
+
+common-types: used by ...?
+
+date-range:
+
+datastax-cassandra: maybe incomplete -- see bake-dropwizard for working version

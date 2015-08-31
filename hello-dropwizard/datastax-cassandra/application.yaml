@@ -1,0 +1,12 @@
+
+server:
+  applicationConnectors:
+    - type: http
+      port: 8080
+  adminConnectors:
+    - type: http
+      port: 8081
+
+databaseConfiguration:
+  contactPoint: 127.0.0.1
+  connectee: datastax

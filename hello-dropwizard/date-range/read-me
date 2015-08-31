@@ -1,0 +1,80 @@
+NOT WORKING YET!!!
+Needs Joda DateTime serialisation-deserialisation.
+
+
+
+http://stackoverflow.com/questions/9637297/proper-rest-formatted-url-with-date-ranges
+
+
+
+API
+Pojo {Integer id*; Integer actorId**; DateTime stamp**; String message}
+
+DAO
+List <Pojo> pojos ()
+List <Pojo> pojosById (Integer)
+List <Pojo> pojosByActorIdStamp (Integer, DateTime)
+List <Pojo> pojosFromBeginning (DateTime)
+List <Pojo> pojosToEnding (DateTime)
+List <Pojo> pojosByRange (DateTime, DateTime)
+Pojo pojoById (Integer)
+Pojo insertedPojo (Pojo)
+
+RESPONDER
+Response accessedPojosResponse ()
+Response accessedPojosByRangeResponse (DateTime, DateTime)
+Response createdPojo (Pojo)
+
+RESOURCE
+Response getPojos ()
+Response getPojosByRange (DateTime, DateTime)
+Response postPojo (Pojo)
+
+HTTP
+GET /pojos
+GET /pojos/by-range?beginning=2015-07-01&ending=2015-08-01
+POST /pojo {null, actor-id, stamp, message}
+
+---
+
+API
+Pojo {Integer id*; Integer actorId**; DateTime stamp**; String message}
+
+DAO
+· List <Pojo> pojos ()
+· List <Pojo> pojosById (Integer)
+o List <Pojo> pojosByActorId (String)
+o List <Pojo> pojosByStamp (DateTime)
+o List <Pojo> pojosByMessage (String)
+· List <Pojo> pojosByActorIdStamp (Integer, DateTime)
+o List <Pojo> pojosByActorIdMessage (Integer, String)
+o List <Pojo> pojosByStampMessage (DateTime, String)
+· List <Pojo> pojosByRange (DateTime, DateTime)
+· Pojo pojoById (Integer)
+o Pojo pojoByActorIdStamp (Integer, DateTime)
+· Pojo insertedPojo (Pojo)
+x Pojo updatedPojo (Pojo)
+x Pojo deletedPojo (Integer)
+
+Responder
+x Response accessedPojos ()
+x Response accessedPojosById (Integer)
+...
+
+HTTP
+GET /pojos
+GET /pojos?id=0
+GET /pojos?actor-id=0
+GET /pojos?stamp=2015-07-14
+GET /pojos?message=hello
+GET /pojos/by-range?beginning=2015-07-01&ending=2015-08-01
+...
+
+---
+
+    List <Pojo> pojosByActorId (Integer actorId) {return pojos.stream ().filter (cp -> cp.getActorId ().equals (actorId)).collect (Collectors.toList ());}
+    List <Pojo> pojosByStamp (DateTime stamp) {return pojos.stream ().filter (cp -> cp.getStamp ().equals (stamp)).collect (Collectors.toList ());}
+    List <Pojo> pojosByMessage (String message) {return pojos.stream ().filter (cp -> cp.getMessage ().equals (message)).collect (Collectors.toList ());}
+    List <Pojo> pojosByActorIdMessage (Integer actorId, String message) {return pojos.stream ().filter (cp -> cp.getActorId ().equals (actorId)).filter (cp -> cp.getMessage ().equals (message)).collect (Collectors.toList ());}
+    List <Pojo> pojosByStampMessage (DateTime stamp, String message) {return pojos.stream ().filter (cp -> cp.getActorId ().equals (stamp)).filter (cp -> cp.getMessage ().equals (message)).collect (Collectors.toList ());}
+    Pojo pojoByActorIdStamp (Integer actorId, DateTime stamp) {List <Pojo> pojos = pojosByActorIdStamp (actorId, stamp); return singleton (pojos);}

@@ -1,0 +1,68 @@
+{
+	"id": "d0b42623-2e75-fec4-1cff-75a9cc9899ae",
+	"name": "getting-started",
+	"description": "",
+	"order": [
+		"c5f11250-f4d5-768f-4ecd-0ab4e706eb85",
+		"43ddd193-51d5-a12e-ec47-1cd9fc3fa501",
+		"2fc2c866-0cf7-5344-62c9-7f46ef41b6f1"
+	],
+	"folders": [],
+	"timestamp": 1437504066475,
+	"owner": "",
+	"remoteLink": "",
+	"public": false,
+	"requests": [
+		{
+			"id": "2fc2c866-0cf7-5344-62c9-7f46ef41b6f1",
+			"url": "http://localhost:8081/healthcheck",
+			"method": "GET",
+			"headers": "",
+			"data": [],
+			"dataMode": "params",
+			"tests": "",
+			"preRequestScript": "",
+			"currentHelper": "normal",
+			"pathVariables": {},
+			"version": 2,
+			"name": "get healthcheck",
+			"description": "",
+			"descriptionFormat": "html",
+			"collectionId": "d0b42623-2e75-fec4-1cff-75a9cc9899ae"
+		},
+		{
+			"id": "43ddd193-51d5-a12e-ec47-1cd9fc3fa501",
+			"url": "localhost:8080/getting-started?name=rik",
+			"method": "GET",
+			"headers": "",
+			"data": [],
+			"dataMode": "params",
+			"tests": "",
+			"preRequestScript": "",
+			"currentHelper": "normal",
+			"pathVariables": {},
+			"version": 2,
+			"name": "get getting-started name",
+			"description": "",
+			"descriptionFormat": "html",
+			"collectionId": "d0b42623-2e75-fec4-1cff-75a9cc9899ae"
+		},
+		{
+			"id": "c5f11250-f4d5-768f-4ecd-0ab4e706eb85",
+			"url": "localhost:8080/getting-started",
+			"method": "GET",
+			"headers": "",
+			"data": [],
+			"dataMode": "params",
+			"tests": "",
+			"preRequestScript": "",
+			"currentHelper": "normal",
+			"pathVariables": {},
+			"version": 2,
+			"name": "get getting started",
+			"description": "",
+			"descriptionFormat": "html",
+			"collectionId": "d0b42623-2e75-fec4-1cff-75a9cc9899ae"
+		}
+	]
+}

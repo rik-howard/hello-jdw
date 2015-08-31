@@ -1,0 +1,68 @@
+{
+	"id": "18d63fc8-1ec5-2832-f9f3-e378d253503e",
+	"name": "minimal-application",
+	"description": "",
+	"order": [
+		"f8c2f7a4-84e7-8963-3f1a-5ef8afec3988",
+		"3c1a257e-a0ad-62a6-f388-ef9366295d87",
+		"ef7a5841-f3d0-bba7-8ed5-d126699f15dc"
+	],
+	"folders": [],
+	"timestamp": 1437427567310,
+	"owner": "",
+	"remoteLink": "",
+	"public": false,
+	"requests": [
+		{
+			"id": "3c1a257e-a0ad-62a6-f388-ef9366295d87",
+			"url": "localhost:8081/tasks/gc",
+			"method": "POST",
+			"headers": "",
+			"data": [],
+			"dataMode": "params",
+			"tests": "",
+			"preRequestScript": "",
+			"currentHelper": "normal",
+			"pathVariables": {},
+			"version": 2,
+			"name": "post tasks gc",
+			"description": "",
+			"descriptionFormat": "html",
+			"collectionId": "18d63fc8-1ec5-2832-f9f3-e378d253503e"
+		},
+		{
+			"id": "ef7a5841-f3d0-bba7-8ed5-d126699f15dc",
+			"url": "localhost:8081/tasks/log-level",
+			"method": "POST",
+			"headers": "",
+			"data": [],
+			"dataMode": "params",
+			"tests": "",
+			"preRequestScript": "",
+			"currentHelper": "normal",
+			"pathVariables": {},
+			"version": 2,
+			"name": "post tasks log-level",
+			"description": "",
+			"descriptionFormat": "html",
+			"collectionId": "18d63fc8-1ec5-2832-f9f3-e378d253503e"
+		},
+		{
+			"id": "f8c2f7a4-84e7-8963-3f1a-5ef8afec3988",
+			"url": "localhost:8080",
+			"method": "GET",
+			"headers": "",
+			"data": [],
+			"dataMode": "params",
+			"tests": "",
+			"preRequestScript": "",
+			"currentHelper": "normal",
+			"pathVariables": {},
+			"version": 2,
+			"name": "get (root)",
+			"description": "",
+			"descriptionFormat": "html",
+			"collectionId": "18d63fc8-1ec5-2832-f9f3-e378d253503e"
+		}
+	]
+}

@@ -1,0 +1,18 @@
+
+GET
+/imps
+/imps?id=1
+/imps?forename=john
+/imps?surname=smtih
+/imps?forename=john&surname=smtih
+/imp?id=1
+/imp?forename=john&surname=smtih
+
+POST
+/imp {id:null;forname:john;surname:smith}
+
+PUT
+/imp {id:1;forname:jon;surname:smith}
+
+DELETE
+/imp?id=1

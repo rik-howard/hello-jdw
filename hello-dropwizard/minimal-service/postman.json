@@ -1,0 +1,50 @@
+{
+	"id": "f550655f-cc4f-7fd5-63bb-1f8504960520",
+	"name": "minimal-service",
+	"description": "",
+	"order": [
+		"518f5966-6444-c5d0-faf5-09b1d5196968",
+		"34e6e32c-b375-58c5-3405-d092990bfe1b"
+	],
+	"folders": [],
+	"timestamp": 1437427211032,
+	"owner": "",
+	"remoteLink": "",
+	"public": false,
+	"requests": [
+		{
+			"id": "34e6e32c-b375-58c5-3405-d092990bfe1b",
+			"url": "localhost:8081/tasks/gc",
+			"method": "POST",
+			"headers": "",
+			"data": [],
+			"dataMode": "params",
+			"tests": "",
+			"preRequestScript": "",
+			"currentHelper": "normal",
+			"pathVariables": {},
+			"version": 2,
+			"name": "post tasks gc",
+			"description": "",
+			"descriptionFormat": "html",
+			"collectionId": "f550655f-cc4f-7fd5-63bb-1f8504960520"
+		},
+		{
+			"id": "518f5966-6444-c5d0-faf5-09b1d5196968",
+			"url": "localhost:8080",
+			"method": "GET",
+			"headers": "",
+			"data": [],
+			"dataMode": "params",
+			"tests": "",
+			"preRequestScript": "",
+			"currentHelper": "normal",
+			"pathVariables": {},
+			"version": 2,
+			"name": "get (root)",
+			"description": "",
+			"descriptionFormat": "html",
+			"collectionId": "f550655f-cc4f-7fd5-63bb-1f8504960520"
+		}
+	]
+}
