@@ -1,0 +1,13 @@
+
+
+
+SCHEMA
+
+CompanyPerson (
+    id *: Integer;
+    personId **: Integer;
+    companyId **: Integer;
+    inserted: DateTime;
+    updated: DateTime;
+    deleted: DateTime
+)

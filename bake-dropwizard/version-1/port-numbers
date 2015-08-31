@@ -1,0 +1,15 @@
+#!/bin/bash
+
+cd $(dirname $0)
+projects="person-service company-service"
+
+for project in $projects
+do
+    if test -f $project/application.yaml
+    then
+        echo
+        echo $project
+        head -8 $project/application.yaml | tail -7
+    fi
+done
+echo

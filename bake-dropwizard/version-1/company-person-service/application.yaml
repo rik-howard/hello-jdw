@@ -1,0 +1,12 @@
+
+server:
+  applicationConnectors:
+    - type: http
+      port: 10000
+  adminConnectors:
+    - type: http
+      port: 10001
+
+daoConfiguration:
+  contactPoint: 127.0.0.1
+  keyspace: bake_dropwizard

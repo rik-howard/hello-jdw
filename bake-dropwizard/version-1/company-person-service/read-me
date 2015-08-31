@@ -1,0 +1,47 @@
+
+
+
+HTTP
+
+GET /company-persons?id&company-id&person-id
+POST /company-person {id: null; company-id: {company-id}; person-id: {person-id}}
+PUT /company-person {id: {id}; company-id: {company-id}; person-id: {person-id}}
+DELETE /company-persons?id
+
+
+
+SCHEMA
+
+CompanyPerson {
+    id*: CompanyPersonId;
+    companyId**: CompanyId;
+    personId**: PersonId
+    inserted**: Inserted;
+    updated: Updated;
+    deleted: Deleted
+}
+
+
+
+CQL
+
+select id, company_id, person_id
+from company_persons
+
+insert into company_persons (id, company_id, person_id, inserted)
+values ($max_id + 1, $company_id, $person_id, $now)
+
+update company_persons
+set
+    company_id = $company_id,
+    person_id = $person_id,
+    updated = $now
+where id = $id
+
+update company_persons
+set deleted = $now
+where id = $id
+
+
+
+---

@@ -1,0 +1,139 @@
+
+
+
+HTTP
+
+GET /companys?id=$id&name=$name
+POST /company {id: null; name: $name; inserted: null; updated: null; deleted: null}
+PUT /company {id: $id; name: $name; surname: $surname; inserted: $inserted; updated: $ignored; deleted: null}
+DELETE /companys?id=$id
+
+GET /companys/inserted?from=$beginning&to=$ending
+GET /companys/updated?from=$beginning&to=$ending
+GET /companys/deleted?from=$beginning&to=$ending
+
+
+
+RESOURCE
+
+Response getCompanys (CompanyIdParam, NameParam);
+Response postCompany (Company);
+Response putCompany (Company);
+Resonse deleteCompany (CompanyIdParam);
+
+Response getCompanysInserted (DateTimeParam, DateTimeParam);
+Response getCompanysUpdated (DateTimeParam, DateTimeParam);
+Response getCompanysDeleted (DateTimeParam, DateTimeParam);
+
+
+
+DIRECTOR
+
+List <Company> gottenCompanys (CompanyId, Name);
+Company postedCompany (Company);
+Company putCompany (Company);
+Company deletedCompany (CompanyId);
+
+List <Company> gottenCompanysInserted (Beginning, Ending);
+List <Company> gottenCompanysUpdated (Beginning, Ending);
+List <Company> gottenCompanysDeleted (Beginning, Ending);
+
+
+
+
+MANAGER
+
+List <Company> accessedCompanys (CompanyId, Name);
+Company createdCompany (Company);
+Company recreatedCompany (Company);
+Company decreatedCompany (Company);
+
+List <Company> accessedCompanysInserted (Beginning, Ending);
+List <Company> accessedCompanysUpdated (Beginning, Ending);
+List <Company> accessedCompanysDeleted (Beginning, Ending);
+
+
+
+WORKER
+
+List <Company> selectedCompanys ();
+List <Company> selectedCompanys (CompanyId);
+List <Company> selectedCompanys (Name);
+Company insertedCompany (Company);
+Company updatedCompany (Company)
+Company deletedCompany (Company)
+
+List <Company> selectedCompanysInserted (Beginning, Ending);
+List <Company> selectedCompanysUpdated (Beginning, Ending);
+List <Company> selectedCompanysDeleted (Beginning, Ending);
+
+
+
+DAO
+
+List <Company> selectedCompanys ();
+void insertCompany (Company);
+void updateCompany (Company);
+void deleteCompany (Company);
+
+
+
+POJO
+
+CompanyId getId ();
+Name getName ();
+Inserted getInserted ();
+Updated getUpdated ();
+Deleted getDeleted ();
+boolean equals (Object);
+int hashCode ();
+String toString ();
+Boolean canBeCreated ();
+Boolean canBeRecreated ();
+Boolean canBeDecreated ();
+Boolean queriesById ();
+Boolean queriesByName ();
+
+Boolean queriesFromBeginning ();  // in date-range, surely
+Boolean queriesToEnding ();
+Boolean queriesFromBeginningToEnding ();
+
+
+
+SCHEMA
+
+Company: {
+    id*: CompanyId;
+    name**: Name;
+    inserted**: Inserted;
+    updated: Updated;
+    deleted: Deleted
+}
+
+
+
+CQL
+
+select id, name, inserted, updated, deleted
+from companys;
+
+insert into companys (id, name, inserted)
+values ($maxId + 1, $name, $now);
+
+update companys
+set
+    name = $name,
+    updated = $now
+where id = $id;
+
+delete
+from companys
+where id = $id;
+
+update companys
+set deleted = $now
+where id = $id;
+
+
+
+---

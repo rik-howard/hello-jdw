@@ -1,0 +1,25 @@
+
+
+
+VERSION 0 (IN-MEMORY DAOS)
+
+common
+licence-service
+licence-person-service
+company-person-service
+
+
+
+VERSION 1 (CASSANDRA)
+
+common-types
+person-service
+company-service
+company-person-service
+port-numbers
+
+
+
+TO-DO
+
+finish company-person-service (version 1)

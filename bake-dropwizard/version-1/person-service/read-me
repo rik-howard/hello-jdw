@@ -1,0 +1,146 @@
+
+
+
+HTTP
+
+GET /persons?id=$id&forename=$forename&surname=$surname
+POST /person {id: null; forename: $forename; surname: $surname; inserted: null; updated: null; deleted: null}
+PUT /person {id: $id; forename: $forename; surname: $surname; inserted: $inserted; updated: $ignored; deleted: null}
+DELETE /persons?id=$id
+
+GET /persons/inserted?from=$beginning&to=$ending
+GET /persons/updated?from=$beginning&to=$ending
+GET /persons/deleted?from=$beginning&to=$ending
+
+
+
+RESOURCE
+
+Response getPersons (PersonIdParam, ForenameParam, SurnameParam);
+Response postPerson (Person);
+Response putPerson (Person);
+Resonse deletePerson (PersonIdParam);
+
+Response getPersonsInserted (DateTimeParam, DateTimeParam);
+Response getPersonsUpdated (DateTimeParam, DateTimeParam);
+Response getPersonsDeleted (DateTimeParam, DateTimeParam);
+
+
+
+DIRECTOR
+
+List <Person> gottenPersons (PersonId, Forename, Surname);
+Person postedPerson (Person);
+Person putPerson (Person);
+Person deletedPerson (PersonId);
+
+List <Person> gottenPersonsInserted (Beginning, Ending);
+List <Person> gottenPersonsUpdated (Beginning, Ending);
+List <Person> gottenPersonsDeleted (Beginning, Ending);
+
+
+
+
+MANAGER
+
+List <Person> accessedPersons (PersonId, Forename, Surname);
+Person createdPerson (Person);
+Person recreatedPerson (Person);
+Person decreatedPerson (Person);
+
+List <Person> accessedPersonsInserted (Beginning, Ending);
+List <Person> accessedPersonsUpdated (Beginning, Ending);
+List <Person> accessedPersonsDeleted (Beginning, Ending);
+
+
+
+WORKER
+
+List <Person> selectedPersons ();
+List <Person> selectedPersons (PersonId);
+List <Person> selectedPersons (Forename);
+List <Person> selectedPersons (Surname);
+List <Person> selectedPersons (Forename, Surname);
+Person insertedPerson (Person);
+Person updatedPerson (Person)
+Person deletedPerson (Person)
+
+List <Person> selectedPersonsInserted (Beginning, Ending);
+List <Person> selectedPersonsUpdated (Beginning, Ending);
+List <Person> selectedPersonsDeleted (Beginning, Ending);
+
+
+
+DAO
+
+List <Person> selectedPersons ();
+void insertPerson (Person);
+void updatePerson (Person);
+void deletePerson (Person);
+
+
+
+POJO
+
+PersonId getId ();
+Forename getForename ();
+Surname getSurname ();
+Inserted getInserted ();
+Updated getUpdated ();
+Deleted getDeleted ();
+boolean equals (Object);
+int hashCode ();
+String toString ();
+Boolean canBeCreated ();
+Boolean canBeRecreated ();
+Boolean canBeDecreated ();
+Boolean queriesById ();
+Boolean queriesByForenameAndSurname ();
+Boolean queriesByForename ();
+Boolean queriesBySurname ();
+
+Boolean queriesFromBeginning ();  // in date-range, surely
+Boolean queriesToEnding ();
+Boolean queriesFromBeginningToEnding ();
+
+
+
+SCHEMA
+
+Person: {
+    id*: PersonId;
+    forename**: Forename;
+    surname**: Surname;
+    inserted**: Inserted;
+    updated: Updated;
+    deleted: Deleted
+}
+
+
+
+CQL
+
+select id, forename, surname, inserted, updated, deleted
+from persons;
+
+insert into persons (id, forename, surname, inserted)
+values ($maxId + 1, $forename, $surname, $now);
+
+update persons
+set
+    forename = $forename,
+    surname = $surname,
+    updated = $now
+where id = $id;
+
+delete
+from persons
+where id = $id;
+
+update persons
+set deleted = $now
+where id = $id;
+
+
+
+---
