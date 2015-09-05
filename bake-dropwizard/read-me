@@ -23,3 +23,5 @@ port-numbers
 TO-DO
 
 finish company-person-service (version 1)
+
+get rid of the 'surname' parameter from company.Manager.accessedCompanys, etc. (it got there because these classes were created by cut-n-paste, find-n-replace coding)
