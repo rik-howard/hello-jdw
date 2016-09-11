@@ -37,7 +37,7 @@ public class CompanyClientTest {
         companys = new ArrayList <Company> () {{add (company);}};
         testee = new CompanyClient (client);
         when (webTarget.request (MediaType.APPLICATION_JSON)).thenReturn (builder);
-        when (builder.get (new GenericType<List<Company>> (Company.class))).thenReturn (companys);
+        when (builder.get (new GenericType <List <Company>> (Company.class))).thenReturn (companys);
     }
 
     @After

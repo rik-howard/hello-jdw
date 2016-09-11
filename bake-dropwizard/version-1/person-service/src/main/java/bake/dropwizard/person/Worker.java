@@ -1,9 +1,9 @@
 
 package bake.dropwizard.person;
 
-import bake.dropwizard.common.types.exceptions.dao.ExistenceException;
-import bake.dropwizard.common.types.exceptions.dao.NonexistenceException;
-import bake.dropwizard.common.types.exceptions.dao.NonuniquenessException;
+import bake.dropwizard.common.exceptions.dao.ExistenceException;
+import bake.dropwizard.common.exceptions.dao.NonexistenceException;
+import bake.dropwizard.common.exceptions.dao.NonuniquenessException;
 import bake.dropwizard.common.types.fields.Forename;
 import bake.dropwizard.common.types.fields.PersonId;
 import bake.dropwizard.common.types.fields.Surname;
