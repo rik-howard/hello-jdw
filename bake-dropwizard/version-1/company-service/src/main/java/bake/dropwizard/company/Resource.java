@@ -36,9 +36,9 @@ public class Resource {
         @QueryParam ("surname") SurnameParam surnameParam
     ) {
         List <Company> companys = director.gottenCompanys (
-        idParam == null? null: idParam.get (),
-        nameParam == null? null: nameParam.get (),
-        surnameParam == null? null: surnameParam.get ()
+            idParam == null? null: idParam.get (),
+            nameParam == null? null: nameParam.get (),
+            surnameParam == null? null: surnameParam.get ()
         );
         return Response.ok (companys).build ();
     }

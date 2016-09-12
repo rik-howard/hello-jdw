@@ -55,10 +55,11 @@ public class Worker {
     Company updatedCompany (Company company)
     throws NonexistenceException, NonuniquenessException {
         List <Company> found = selectedCompanys (company.getId ());
-        found = found
-            .stream ()
-            .filter (p -> p.getInserted ().dateTime ().equals (company.getInserted ().dateTime ()))
-            .collect (Collectors.toList ());
+        // why did i have this?
+        //found = found
+        //    .stream ()
+        //    .filter (p -> p.getInserted ().dateTime ().equals (company.getInserted ().dateTime ()))
+        //    .collect (Collectors.toList ());
         if (found.isEmpty ())
             throw new NonexistenceException ();
         if (found.size () > 1)

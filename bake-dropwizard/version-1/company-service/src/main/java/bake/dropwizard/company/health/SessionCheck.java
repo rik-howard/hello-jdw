@@ -18,7 +18,8 @@ extends HealthCheck {
     protected Result check ()
     throws Exception {
         try {
-            String statement = "select * from system.schema_keyspaces;";
+            //String statement = "select * from system.schema_keyspaces;";
+            String statement = "select * from system.paxos;";
             ResultSet resultSet = session.execute (statement);
             return Result.healthy ();
         }

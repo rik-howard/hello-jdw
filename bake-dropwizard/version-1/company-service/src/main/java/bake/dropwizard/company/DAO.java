@@ -1,6 +1,11 @@
 
 package bake.dropwizard.company;
 
+import java.io.IOException;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 import bake.dropwizard.common.types.pojos.Company;
 import com.datastax.driver.core.ResultSet;
 import com.datastax.driver.core.Row;
@@ -9,12 +14,6 @@ import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
-
-import java.io.IOException;
-import java.util.Date;
-import java.util.List;
-import java.util.Collections;
-import java.util.stream.Collectors;
 
 public class DAO {
 
@@ -64,12 +63,15 @@ public class DAO {
     private static Company company (Row row) {
         Integer idInteger = row.getInt ("id");
         String nameString = row.getString ("name");
-        Date insertedDate = row.getDate ("inserted");
-        Date updatedDate = row.getDate ("updated");
-        Date deletedDate = row.getDate ("deleted");
-        DateTime insertedDateTime = insertedDate == null? null: new DateTime (insertedDate.getTime (), DateTimeZone.UTC);
-        DateTime updatedDateTime = updatedDate == null? null: new DateTime (updatedDate.getTime (), DateTimeZone.UTC);
-        DateTime deletedDateTime = deletedDate == null? null: new DateTime (deletedDate.getTime (), DateTimeZone.UTC);
+        //Date insertedDate = row.getDate ("inserted");
+        //Date updatedDate = row.getDate ("updated");
+        //Date deletedDate = row.getDate ("deleted");
+        //DateTime insertedDateTime = insertedDate == null? null: new DateTime (insertedDate.getTime (), DateTimeZone.UTC);
+        //DateTime updatedDateTime = updatedDate == null? null: new DateTime (updatedDate.getTime (), DateTimeZone.UTC);
+        //DateTime deletedDateTime = deletedDate == null? null: new DateTime (deletedDate.getTime (), DateTimeZone.UTC);
+        DateTime insertedDateTime = dateTime (row.getTimestamp ("inserted"));
+        DateTime updatedDateTime = dateTime (row.getTimestamp ("updated"));
+        DateTime deletedDateTime = dateTime (row.getTimestamp ("deleted"));
         return Company.company (
             idInteger,
             nameString,
@@ -109,6 +111,11 @@ public class DAO {
                 company.getId ()
             );
         ResultSet resultSet = session.execute (statement);
+    }
+
+    private static DateTime dateTime (Date date) {
+        if (date == null) return null;
+        else return new DateTime (date.getTime (), DateTimeZone.UTC);
     }
 
 }
