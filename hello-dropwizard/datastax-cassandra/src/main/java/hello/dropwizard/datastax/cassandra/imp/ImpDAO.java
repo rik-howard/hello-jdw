@@ -49,7 +49,7 @@ public class ImpDAO {
             .filter (i -> i.getSurname ().equals (i.getSurname ()))
             .collect (Collectors.toList ());
         if (found.size () > 0)
-            throw new RuntimeException ("existence");
+            throw new Exception ("existence");
         String statement = String
             .format (
                 INSERTION_TEMPLATE,
@@ -64,11 +64,11 @@ public class ImpDAO {
             .filter (i -> i.getSurname ().equals (i.getSurname ()))
             .collect (Collectors.toList ());
         if (found.size () == 0)
-            throw new RuntimeException ("insertion failed");
+            throw new Exception ("insertion failed");
         else if (found.size () == 1)
             return found.get (0);
         else
-            throw new RuntimeException ("wrf?");
+            throw new Exception ("wrf?");
     }
 
     Imp updatedImp (Imp imp) {
@@ -77,9 +77,9 @@ public class ImpDAO {
             .filter (i -> i.getId ().equals (i.getId ()))
            .collect (Collectors.toList ());
         if (found.size () == 0)
-            throw new RuntimeException ("nonexistence");
+            throw new Exception ("nonexistence");
         else if (found.size () > 1)
-            throw new RuntimeException ("nonuniquess");
+            throw new Exception ("nonuniquess");
         String statement = String
             .format (
                 UPDATING_TEMPLATE,
@@ -97,9 +97,9 @@ public class ImpDAO {
             .filter (i -> i.getId ().equals (i.getId ()))
             .collect (Collectors.toList ());
         if (found.size () == 0)
-            throw new RuntimeException ("nonexistence");
+            throw new Exception ("nonexistence");
         else if (found.size () > 1)
-            throw new RuntimeException ("nonuniquess");
+            throw new Exception ("nonuniquess");
         String statement = String
             .format (DELETION_TEMPLATE, imp.getId ());
         session.execute (statement);

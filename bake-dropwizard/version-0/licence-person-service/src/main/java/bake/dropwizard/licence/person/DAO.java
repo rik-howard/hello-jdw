@@ -60,9 +60,9 @@ public class DAO {
 
     private static LicencePerson singleton (List <LicencePerson> licencePersons) {
         if (licencePersons.isEmpty ())
-            throw new RuntimeException ("licence-person not found");
+            throw new Exception ("licence-person not found");
         else if (licencePersons.size () > 1)
-            throw new RuntimeException ("licence-person not unique");
+            throw new Exception ("licence-person not unique");
         else
             return licencePersons.get (0);
     }
