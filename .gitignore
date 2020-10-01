@@ -1,5 +1,7 @@
 # Created by https://www.gitignore.io/api/maven
 
+.directory
+
 ### Maven ###
 target/
 pom.xml.tag
