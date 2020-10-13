@@ -13,7 +13,7 @@
 
     <properties>
         <java.level>1.8</java.level>
-        <junit.version>4.9</junit.version>
+        <junit.version>4.13.1</junit.version>
         <mockito.version>2.0.31-beta</mockito.version>
         <dropwizard.version>0.8.2</dropwizard.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
